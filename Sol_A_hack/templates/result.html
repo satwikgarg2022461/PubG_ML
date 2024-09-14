@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}">
+    <style>
+        .greater-than-mean {
+            background-color: green;
+            color: white;
+        }
+        .less-than-mean {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <video class="video-embed" autoplay muted loop>
+            <source src="{{ url_for('static', filename='video/bgvideo.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+        <div class="player-analysis">
+            <h1>Player Analysis</h1>
+            <h2>Predictions</h2>
+            <ul>
+                {% for item in predictions %}
+                    <li>Prediction: {{ item['predictions'] }}</li>
+                {% endfor %}
+            </ul>
+            <h2>Additional Data</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Walk Distance</th>
+                        <th>Kill Place</th>
+                        <th>Total Distance</th>
+                        <th>Boosts</th>
+                        <th>Heals Per Distance</th>
+                        <th>Kill Per Max Place</th>
+                        <th>Total Team Damage</th>
+                        <th>Total Kills By Team</th>
+                        <th>Weapons Acquired</th>
+                        <th>Heals & Boosts</th>
+                        <th>Kills Per Distance</th>
+                        <th>Match Duration</th>
+                        <th>Ride Distance</th>
+                        <th>Kills</th>
+                        <th>Longest Kill</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in data %}
+                        <tr>
+                            <td class="{% if row['walkDistance'] > mean_values['walkDistance'] %}greater-than-mean{% else %}less-than-mean{% endif %}">{{ row['walkDistance'] }}</td>
+                            <td class="{% if row['killPlace'] > mean_values['killPlace'] %}greater-than-mean{% else %}less-than-mean{% endif %}">{{ row['killPlace'] }}</td>
+                            <td class="{% if row['total_distance'] > mean_values['total_distance'] %}greater-than-mean{% else %}less-than-mean{% endif %}">{{ row['total_distance'] }}</td>
+                            <td class="{% if row['boosts'] > mean_values['boosts'] %}greater-than-mean{% else %}less-than-mean{% endif %}">{{ row['boosts'] }}</td>
+                            <td class="{% if row['HealsPerDist'] > mean_values['HealsPerDist'] %}greater-than-mean{% else %}less-than-mean{% endif %}">{{ row['HealsPerDist'] }}</td>
+                            <td class="{% if row['killP/maxP'] > mean_values['killP/maxP'] %}greater-than-mean{% else %}less-than-mean{% endif %}">{{ row['killP/maxP'] }}</td>
+                            <td class="{% if row['total_team_damage'] > mean_values['total_team_damage'] %}greater-than-mean{% else %}less-than-mean{% endif %}">{{ row['total_team_damage'] }}</td>
+                            <td class="{% if row['total_kills_by_team'] > mean_values['total_kills_by_team'] %}greater-than-mean{% else %}less-than-mean{% endif %}">{{ row['total_kills_by_team'] }}</td>
+                            <td class="{% if row['weaponsAcquired'] > mean_values['weaponsAcquired'] %}greater-than-mean{% else %}less-than-mean{% endif %}">{{ row['weaponsAcquired'] }}</td>
+                            <td class="{% if row['Heals_Boosts'] > mean_values['Heals_Boosts'] %}greater-than-mean{% else %}less-than-mean{% endif %}">{{ row['Heals_Boosts'] }}</td>
+                            <td class="{% if row['KillsPerDist'] > mean_values['KillsPerDist'] %}greater-than-mean{% else %}less-than-mean{% endif %}">{{ row['KillsPerDist'] }}</td>
+                            <td class="{% if row['matchDuration'] > mean_values['matchDuration'] %}greater-than-mean{% else %}less-than-mean{% endif %}">{{ row['matchDuration'] }}</td>
+                            <td class="{% if row['rideDistance'] > mean_values['rideDistance'] %}greater-than-mean{% else %}less-than-mean{% endif %}">{{ row['rideDistance'] }}</td>
+                            <td class="{% if row['kills'] > mean_values['kills'] %}greater-than-mean{% else %}less-than-mean{% endif %}">{{ row['kills'] }}</td>
+                            <td class="{% if row['longestKill'] > mean_values['longestKill'] %}greater-than-mean{% else %}less-than-mean{% endif %}">{{ row['longestKill'] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

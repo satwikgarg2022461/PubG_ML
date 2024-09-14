@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="screen-container">
+        <div class="screen-container">
+            <video class="video-embed" autoplay muted loop>
+                <source src="{{ url_for('static', filename='video/bgvideo.mp4') }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#dashboard">Dashboard</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </nav>
+            <div class="content">
+                <h1 class="anton-regular">BRING THE HEAT</h1>
+                <h1 class="anton-regular">YOUR VICTORY STARTS HERE!</h1>
+                <ul class="features">
+                    <li>Upload CSV file</li>
+                    <li>Analyze performance</li>
+                    <li>Get actionable insights</li>
+                </ul>
+                <!-- Hidden file input -->
+                <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
+                    <input type="file" id="fileInput" name="file" accept=".csv" style="display:none;" onchange="submitForm()">
+                    <button type="button" class="upload-btn" onclick="triggerFileInput()">Upload CSV</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to trigger file input dialog
+        function triggerFileInput() {
+            document.getElementById('fileInput').click();
+        }
+
+        // Function to automatically submit the form after selecting a file
+        function submitForm() {
+            document.getElementById('uploadForm').submit();
+        }
+    </script>
+</body>
+</html>

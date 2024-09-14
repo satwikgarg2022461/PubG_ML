@@ -1,0 +1,137 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #181818;
+}
+
+.screen-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    color: white;
+    overflow: hidden; /* Ensures no scrolling for the background video */
+}
+
+.anton-regular {
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+.screen-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover; /* Ensures the video covers the screen while maintaining aspect ratio */
+    z-index: -1; /* Sends the video behind all the content */
+
+}
+
+.navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    z-index: 1; /* Keeps the navbar above the video */
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.audiowide-regular {
+    font-family: "Audiowide", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+.login-btn {
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    position: left;
+}
+
+.content {
+    text-align: center;
+    z-index: 1; /* Keeps content above the video */
+    width: 200vh;
+}
+
+h1 {
+    font-size: 48px;
+    color: #ffcc00;
+}
+
+.subheading {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.features {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.features li {
+    font-size: 18px;
+}
+.upload-btn {
+    background-color: transparent; /* Transparent background */
+    border: #ffcc00 solid 1px; /* Yellow border */
+    color: white; /* Text color */
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-family: "Audiowide", sans-serif; /* Font family */
+    font-weight: regular; /* Font weight */
+    font-style: normal; /* Font style */
+    
+}
+
+
+.progress-bar {
+    width: 300px;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.progress {
+    width: 50%; /* Adjust percentage to simulate progress */
+    height: 100%;
+    background-color: orange;
+}
+
+.esrb-logo {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
+.esrb-logo img {
+    width: 100px;
+}

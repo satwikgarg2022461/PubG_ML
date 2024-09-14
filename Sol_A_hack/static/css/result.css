@@ -1,0 +1,92 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    color: white;
+    overflow: hidden;
+}
+
+.container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.player-analysis {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    padding: 20px;
+    color: #f0c100;
+    width: 80%;
+    max-width: 1200px;
+    backdrop-filter: blur(5px);
+    z-index: 1;
+    text-align: center;
+}
+
+.player-analysis h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.player-analysis h2 {
+    font-size: 1.8rem;
+    margin-top: 20px;
+}
+
+.player-analysis ul {
+    list-style: none;
+    padding: 0;
+}
+
+.player-analysis li {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.player-analysis table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    overflow-x: auto; /* Allows horizontal scroll if needed */
+    display: block;   /* Make the table block-level to handle overflow */
+}
+
+.player-analysis th, .player-analysis td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    word-break: break-word; /* Break words if they are too long */
+    text-align: left; /* Align text to the left for better readability */
+}
+
+.player-analysis th {
+    background-color: #333;
+    color: #f0c100;
+}
+
+.player-analysis tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.player-analysis tr:hover {
+    background-color: #ddd;
+}
