@@ -17,7 +17,7 @@ UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # Load the Random Forest model
-model_path = 'pkl/random_forest_model.pkl'
+model_path = 'pkl/LGBM_model.pkl'
 random_forest_model = joblib.load(model_path)
 
 
